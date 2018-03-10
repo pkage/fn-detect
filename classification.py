@@ -13,6 +13,13 @@ from sklearn.neural_network import MLPClassifier
 import matplotlib.pyplot as plt
 from sklearn.externals import joblib
 import time
+# pip install yandex-translater requests
+from yandex_translate import YandexTranslate
+
+# setup stuff for translations
+translate = YandexTranslate('trnsl.1.1.20180310T193548Z.091aef437ab4a8fb.527567183dacf65361fa85ca9749bf3410135a24')
+
+
 
 def train_nn():
     start = time.time()
@@ -36,11 +43,10 @@ def train_nn():
 def classify_text(text):
     """text: string.
     """
-    # to use fewer textblob calls just translate it - otherwise we could
-    # rather detect the language
-    # en_title = TextBlob(title).translate(to='en')
+    # there is a limit on how many translations we can make 1m I think.
     print('Classify text.')
     start = time.time()
+    translate.translate(text, 'en')
     # en_text = TextBlob(text).translate(to='en')
 
     # load the model from some file
@@ -63,4 +69,5 @@ def classify_text(text):
 
 df = pd.read_csv("nlp_dataset/raw/fake_or_real_news.csv")
 X_train, X_test, y_train, y_test = train_test_split(df['text'], df['label'], test_size=0.3, random_state=53)
+text = X_test.iloc[3]
 prediction, prediction_proba = classify_text(X_test.iloc[3])
