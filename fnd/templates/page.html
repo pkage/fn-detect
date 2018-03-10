@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="page">
+	<div class="sidebar">
+		<div class="top">
+			<div class="title">fn-detect</div>
+			<div class="subtitle">htb 2018</div>
+		</div>
+		<ul class="navigation">
+			<li><a href="{{ url_for('main_blueprint.index') }}">main</a></li>
+			<li><a href="#">articles</a></li>
+			<li><a href="#">scan user</a></li>
+			<li><a href="#">scan article</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<div class="inner-content">
+			{% block content %}{% endblock %}
+		</div>
+	</div>
+</div>
+{% endblock %}

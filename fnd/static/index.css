@@ -1,4 +1,59 @@
-p {
-  text-color: #2b2b2b; }
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0; }
+
+hr {
+  width: 40%;
+  margin-right: 60%; }
+
+body {
+  font-family: 'Open Sans', sans-serif; }
+
+.fullheight, .sidebar {
+  min-height: 100vh; }
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-begin; }
+
+.sidebar {
+  background-color: #00cec9;
+  color: white;
+  width: 220px; }
+  .sidebar > .top {
+    padding: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+    margin-bottom: 1rem; }
+    .sidebar > .top > .title {
+      font-size: 2rem; }
+  .sidebar > .navigation {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; }
+    .sidebar > .navigation > li > a {
+      display: block;
+      padding-left: 1rem;
+      background-color: rgba(255, 255, 255, 0);
+      will-change: background-color;
+      color: white;
+      text-decoration: none; }
+      .sidebar > .navigation > li > a:hover {
+        background-color: rgba(255, 255, 255, 0.5); }
+
+.content {
+  flex-grow: 1;
+  height: 100vh;
+  padding-left: 1rem; }
+
+.inner-content {
+  overflow: auto;
+  display: block; }
 
 /*# sourceMappingURL=index.css.map */

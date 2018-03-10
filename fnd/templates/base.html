@@ -3,7 +3,9 @@
 		<title>{% block title %}page{% endblock %} - fn-detect</title>
 
 		{% block js_head %}{% endblock %}
+		{# <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='semantic.css') }}"> #}
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+		{# <script src="{{ url_for('static', filename='semantic.js') }}"></script> #}
 		{% block css %}{% endblock %}
 	</head>
 	<body>
