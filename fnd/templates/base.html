@@ -1,0 +1,13 @@
+<html>
+	<head>
+		<title>{% block title %}page{% endblock %} - fn-detect</title>
+
+		{% block js_head %}{% endblock %}
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+		{% block css %}{% endblock %}
+	</head>
+	<body>
+		{% block body %}{% endblock %}
+		{% block js %}{% endblock %}
+	</body>
+</html>
