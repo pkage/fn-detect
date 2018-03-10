@@ -43,7 +43,7 @@ def train_nn():
 def classify_text(text):
     """text: string.
     """
-    # there is a limit on how many translations we can make 1m I think.
+    # there is a limit - we can translate 1,000,000 characters.
     print('Classify text.')
     start = time.time()
     translate.translate(text, 'en')
