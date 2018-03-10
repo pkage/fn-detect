@@ -1,7 +1,7 @@
 all: run
 
 install-deps:
-	pip install -r requirements.txt --verbose
+	pip install --user -r requirements.txt --verbose
 
 run:
 	python3 run.py
