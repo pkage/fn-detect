@@ -1,0 +1,1 @@
+{'categories': {'content': 0.32, 'friend': 0.37, 'network': 0.19, 'sentiment': 0.25, 'temporal': 0.16, 'user': 0.12}, 'scores': {'english': 0.3, 'universal': 0.14}, 'user': {'id_str': '3298784262', 'screen_name': 'irissasara'}}

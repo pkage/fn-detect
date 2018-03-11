@@ -1,0 +1,14 @@
+{% extends "page.html" %}
+
+{% block title %}dox{% endblock %}
+
+{% block content %}
+<h1> Deep scan Twitter user </h1>
+<hr>
+<form id="dox" method="POST" action="{{ url_for('main_blueprint.dox_user') }}">
+		<div class="form-group">
+			<label for="username">Username to scan</label>
+			<input name="username" class="dox-username" type="text" placeholder="@realDonaldTrump" autocomplete="off"/>
+		</div>
+</form>
+{% endblock %}

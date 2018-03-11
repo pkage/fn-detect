@@ -1,0 +1,127 @@
+{% extends "page.html" %}
+
+{% block title %}{{ username }}{% endblock %}
+
+{% block content %}
+
+<h1>Overview for @{{username}}</h1>
+<hr>
+
+<div class="images">
+	<div class="banner">
+		<img src="{{ user.profile_banner_url }}">
+	</div>
+	<img class="profile" src="{{ user.profile_image_url }}">
+	
+</div>
+
+<h3 class="is-size-3">Bot scan results:</h3>
+<div class="progressbars">
+	<b class="is-size-4"> Overall: {{bom['scores']['english'] * 100}}% - {{ interpreted_score }}</b>
+	<progress class="progress is-large {{ grade(bom['scores']['english']) }}" value="{{ bom['scores']['english'] * 100 }}" max="100"></progress>
+	<b>Universal (language independent score): {{ bom['scores']['universal'] * 100 }}%</b>	
+	<progress class="progress is-medium {{ grade(bom['scores']['universal']) }}" value="{{ bom['scores']['universal'] * 100 }}" max="100"></progress>
+
+	{% for key in bom['categories'] %}
+	<b class="capitalize">{{ key }}: {{ bom['categories'][key] * 100 }}%</b>
+	<progress class="progress {{ grade(bom['categories'][key]) }}" value="{{ bom['categories'][key] * 100 }}" max="100"></progress>
+
+	{% endfor %}
+</div>
+
+{# The Wrong Way To Do It (tm) #}
+<h3 class="is-size-3">Tweet Heatmap (UTC):</h3>
+<div class="heatmap">
+	<div class="heatmap-row">
+		<div class="heatmap-label">&nbsp;</div>
+		<div class="heatmap-scale">
+			{% for i in range(0, 24) %}
+			<span class="tick" style="margin-left: {{ i / 0.24 }}%">{{ i }}</span>
+			{% endfor %}
+		</div>
+	</div>
+	{% for key in graphs['timemap'] %}
+	<div class="heatmap-row">
+		<div class="heatmap-label">{{ key }}</div>
+		<div class="heatmap-area">
+			{% for num in graphs['timemap'][key] %}
+				<span class="tick" style="margin-left: {{num / 864.0}}%"></span>
+			{% endfor %}
+		</div>
+	</div>
+	{% endfor %}
+	<i>{{ sample['size'] }} tweets sampled, oldest {{ sample['oldest'] }}</i>
+</div>
+<br>
+
+<h3 class="is-size-3">Extracted Twitter parameters</h3>
+<table>
+	<thead>
+		<tr>
+			<th>Field</th>
+			<th>Value</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Name</td>
+			<td>{{ user.name }}</td>
+		</tr>
+		<tr>
+			<td>Screen Name</td>
+			<td><a href="https://twitter.com/{{ user.screen_name }}" rel="noopener" target="_blank">@{{ user.screen_name }}</a></td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td>{{ user.description }}</td>
+		</tr>
+		<tr>
+			<td>Location</td>
+			<td>{{ user.location }}</td>
+		</tr>
+		<tr>
+			<td>Verified?</td>
+			<td>{{ user.verified }}</td>
+		</tr>
+		<tr>
+			<td>Joined</td>
+			<td>{{ user.created_at }} ({{ sample['days_old']}} days ago)</td>
+		</tr>
+		<tr>
+			<td>Tweets</td>
+			<td>{{ user.statuses_count }} ({{ sample['tweets_per_day'] }} per day)</td>
+		</tr>
+		<tr>
+			<td>Language</td>
+			<td>{{ user.lang }}</td>
+		</tr>
+		<tr>
+			<td>Twitter ID</td>
+			<td>{{ user.id_str }}</td>
+		</tr>
+		<tr>
+			<td>Followers</td>
+			<td>{{ user.followers_count }}</td>
+		</tr>
+		<tr>
+			<td>Timezone</td>
+			<td>{{ user.time_zone }}</td>
+		</tr>
+		<tr>
+			<td>User Link</td>
+			<td><a href="{{ user.url }}" rel="noopener" target="_blank">{{ user.url }}</a></td>
+		</tr>
+		<tr>
+			<td>Favorites</td>
+			<td>{{ user.favourites_count }}</td>
+		</tr>
+	</tbody>
+</table>
+<br>
+
+
+{% endblock %}
+{% block js %}
+<script src="{{ url_for('static', filename='lib/d3.v4.min.js') }}"></script>
+<script type="text/plain" id="graphs">{{ graphs|safe }}</script>
+{% endblock %}

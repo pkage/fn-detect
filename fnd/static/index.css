@@ -15,6 +15,40 @@ body {
 .fullheight, .sidebar {
   min-height: 100vh; }
 
+.capitalize {
+  text-transform: capitalize; }
+
+input[type="text"] {
+  background-color: rgba(0, 0, 0, 0);
+  outline: 0;
+  border: 0;
+  border-bottom: 1px solid black;
+  will-change: border-bottom;
+  transition: border-bottom 0.1; }
+  input[type="text"]:active, input[type="text"]:focus {
+    border-bottom: 2px solid #209cee; }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; }
+
+.dox-username {
+  font-size: 2em; }
+
+.images {
+  position: relative;
+  margin-bottom: 64px; }
+  .images > .banner > img {
+    width: 100%;
+    height: auto; }
+  .images > img.profile {
+    position: absolute;
+    left: 64px;
+    bottom: -32px;
+    width: 128px;
+    height: 128px; }
+
 .page {
   min-height: 100vh;
   display: flex;
@@ -23,9 +57,9 @@ body {
   justify-content: flex-begin; }
 
 .sidebar {
-  background-color: #00cec9;
+  background-color: #209cee;
   color: white;
-  width: 220px; }
+  width: 300px; }
   .sidebar > .top {
     padding: 10px;
     font-weight: bold;
@@ -49,11 +83,46 @@ body {
 
 .content {
   flex-grow: 1;
-  height: 100vh;
-  padding-left: 1rem; }
+  padding-left: 1rem;
+  padding-top: 1rem; }
 
 .inner-content {
-  overflow: auto;
   display: block; }
+
+.progressbars {
+  padding-right: 1rem; }
+
+.heatmap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 800px; }
+
+.heatmap-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: calc(800px - 5rem); }
+
+.heatmap-scale {
+  display: block;
+  position: relative;
+  width: calc(800px - 5rem); }
+  .heatmap-scale > .tick {
+    position: absolute; }
+
+.heatmap-label {
+  width: 5rem; }
+
+.heatmap-area {
+  position: relative;
+  border-top: 1px solid gray;
+  width: calc(800px - 5rem); }
+  .heatmap-area > .tick {
+    position: absolute;
+    border-left: 1px solid red;
+    top: 0;
+    bottom: 0; }
 
 /*# sourceMappingURL=index.css.map */
