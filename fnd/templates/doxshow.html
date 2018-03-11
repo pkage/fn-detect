@@ -17,13 +17,13 @@
 
 <h3 class="is-size-3">Bot scan results:</h3>
 <div class="progressbars">
-	<b class="is-size-4"> Overall: {{bom['scores']['english'] * 100}}% - {{ interpreted_score }}</b>
-	<progress class="progress is-large {{ grade(bom['scores']['english']) }}" value="{{ bom['scores']['english'] * 100 }}" max="100"></progress>
-	<b>Universal (language independent score): {{ bom['scores']['universal'] * 100 }}%</b>	
-	<progress class="progress is-medium {{ grade(bom['scores']['universal']) }}" value="{{ bom['scores']['universal'] * 100 }}" max="100"></progress>
+	<b class="is-size-4"> Overall: {{(bom['scores']['english'] * 100)|round|int}}% - {{ interpreted_score }}</b>
+	<progress class="progress is-large {{ grade(bom['scores']['english']) }}" value="{{ (bom['scores']['english'] * 100)|round }}" max="100"></progress>
+	<b>Universal (language independent score): {{ (bom['scores']['universal'] * 100)|round|int }}%</b>	
+	<progress class="progress is-medium {{ grade(bom['scores']['universal']) }}" value="{{ (bom['scores']['universal'] * 100)|round }}" max="100"></progress>
 
 	{% for key in bom['categories'] %}
-	<b class="capitalize">{{ key }}: {{ bom['categories'][key] * 100 }}%</b>
+	<b class="capitalize">{{ key }}: {{ (bom['categories'][key] * 100)|round|int }}%</b>
 	<progress class="progress {{ grade(bom['categories'][key]) }}" value="{{ bom['categories'][key] * 100 }}" max="100"></progress>
 
 	{% endfor %}
