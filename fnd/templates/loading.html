@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>loading...</title>
+		<meta http-equiv="refresh" content="0; url=/dox/username/{{ username }}" >
+	</head>
+	<body>
+		<div class="container">
+			<div class="preload-outer">
+			</div>
+			<div class="preload-inner">
+			</div>
+		</div>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
+
+			.preload-outer {
+				position: absolute;
+				top: calc(50vh - 40px);
+				left: calc(50vw - 40px);
+				width: 80px;
+				height: 80px;
+				transform-origin: 50% 50%;
+				animation-name: rotatePreloader;
+				animation-duration: 0.5s;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;
+				margin: 0;
+				padding: 0;
+				border: 2px solid black;
+				border-radius: 50%;
+				border-bottom-color: rgba(0, 0, 0, 0);
+				border-left-color: rgba(0, 0, 0, 0);
+			}
+
+			.preload-inner {
+				position: absolute;
+				top: calc(50vh - 30px);
+				left: calc(50vw - 30px);
+				width: 60px;
+				height: 60px;
+				transform-origin: 50% 50%;
+				animation-name: rotatePreloader;
+				animation-duration: 0.5s;
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;
+				margin: 0;
+				padding: 0;
+				border: 2px solid black;
+				border-radius: 50%;
+				border-top-color: rgba(0, 0, 0, 0);
+				border-right-color: rgba(0, 0, 0, 0);
+				animation-direction: reverse;
+			}
+
+			@keyframes rotatePreloader {
+				0% {
+					transform: rotate(0deg);
+				}
+				50% {
+					transform: rotate(180deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+
+		</style>
+	</body>
+</html>

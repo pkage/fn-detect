@@ -1,2 +1,10 @@
 flask
 newspaper3k
+python-twitter
+numpy
+scipy
+pandas
+requests
+bs4
+arrow
+botometer

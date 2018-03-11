@@ -1,0 +1,22 @@
+{
+	"manifest_version": 2,
+
+	"name": "fn-detect",
+	"description": "Fake account and media analyzer",
+	"version": "0.1",
+
+	"browser_action": {
+		"default_icon": "fn.png"
+	},
+
+	"permissions": [
+		"activeTab"
+	],
+
+	"content_scripts": [
+		{
+			"matches": ["https://twitter.com/*"],
+			"js": ["fndetect.js"]
+		}
+	]
+}

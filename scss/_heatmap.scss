@@ -1,0 +1,41 @@
+$heatmap-label-pad: 5rem;
+
+.heatmap {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 800px;
+
+}
+
+.heatmap-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	width: calc(800px - #{$heatmap-label-pad});
+}
+
+.heatmap-scale {
+	display: block;
+	position: relative;
+	width: calc(800px - #{$heatmap-label-pad});
+
+	> .tick {
+		position: absolute;
+	}
+}
+.heatmap-label {
+	width: $heatmap-label-pad;
+}
+.heatmap-area {
+	position: relative;
+	border-top: 1px solid gray;
+	width: calc(800px - #{$heatmap-label-pad});
+	> .tick {
+		position: absolute;
+		border-left: 1px solid red;
+		top: 0;
+		bottom: 0;
+	}
+}

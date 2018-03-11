@@ -3,6 +3,9 @@ all: run
 install-deps:
 	pip install --user -r requirements.txt --verbose
 
+install-deps-venv:
+	pip install -r requirements.txt --verbose
+
 run:
 	python3 run.py
 
