@@ -17,7 +17,7 @@ import time
 from yandex_translate import YandexTranslate
 
 # setup stuff for translations
-translate = YandexTranslate('trnsl.1.1.20180310T193548Z.091aef437ab4a8fb.527567183dacf65361fa85ca9749bf3410135a24')
+translate = YandexTranslate('api-key-here')
 
 
 
